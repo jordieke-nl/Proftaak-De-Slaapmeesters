@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  background-color: gray;
+}
+
+.logo {
+  margin-top: -30px;
+}
+
+.social {
+  font-size: 20px;
+}
