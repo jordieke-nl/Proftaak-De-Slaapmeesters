@@ -10,3 +10,47 @@ body {
 .social {
   font-size: 20px;
 }
+
+.active{
+        z-index:99;
+    }
+table td{
+  padding-left: 5px !important;
+  font-size: 1.25rem !important;
+}
+
+.cardColor {
+  background-color: #575756;
+}
+.textColor {
+  color: #f9f9f9 !important;
+  font-family: Helvetica,Arial,Verdana,sans-serif !important;
+  font-size: 30px !important;
+  text-align: center;
+}
+
+.backColor {
+  background-color: f6f6f6 !important;
+}
+
+.ownStyle {
+  font-size: 30px;
+  font-family: Helvetica,Arial,Verdana,sans-serif;
+  text-align: left;
+}
+
+.size {
+  font-size: 1.5rem;
+}
+.click {
+  opacity: 0.7;
+}
+.click:hover {
+  transform: scale(1.05);
+  opacity: 1.0;
+}
+
+
+.imagePosition {
+margin-left: 800px;
+}

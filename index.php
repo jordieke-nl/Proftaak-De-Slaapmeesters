@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -22,9 +24,79 @@
   <div class="jumbotron">
    <img class="img-responsive logo" width="700" height="350" src="img/deslaapmeesters.png">
     <p>Ervaring van toen, kennis van nu en een scherpe blik op de toekomst.</p>
+
   </div>
-  <p>This is some text.</p>
-  <p>This is another text.</p>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="producten.php">Producten</a>
+        <a class="nav-item nav-link" href="#">Pricing</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+	<div class="container-slider">
+		        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	            <ol class="carousel-indicators">
+	                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+	                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+	                <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+	            </ol>
+	            <div class="carousel-inner">
+	                <div class="carousel-item">
+	                    <img class="foto" src="img\bed.jpg" alt="" style="width:100%;">
+	                    <div class="carousel-caption">
+	                        <h3></h3>
+	                        <p></p>
+	                    </div>
+	                </div>
+	                <div class="carousel-item">
+	                    <img  class="foto" src="img\bed.jpg" alt="" style="width:100%;">
+	                    <div class="carousel-caption projectNameColor">
+	                        <h3> </h3>
+	                        <p></p>
+	                    </div>
+	                </div>
+	                <div class="carousel-item active">
+	                    <img  class="foto" src="img\bed.jpg" alt="" style="width:100%;">
+	                    <div class="carousel-caption projectNameColor">
+	                        <h3></h3>
+	                        <p></p>
+	                    </div>
+	                </div>
+	            </div>
+	            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+	                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	                <span class="sr-only">Previous</span>
+	            </a>
+	            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+	                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	                <span class="sr-only">Next</span>
+	            </a>
+	        </div>
+	    </div>
+
+
+<div class="container">
+<div class="jumbotron">
+  <h2>De SlaapmeestersErvaring van toen, kennis van nu en een scherpe blik op de toekomst.</h2><br />
+
+  <h2>Meer dan 100 jaar cumulatieve ervaring in het produceren van matrassen en boxsprings, opgedaan bij een toonaangevende fabrikant in de slaapcomfortindustrie.</h2><br />
+
+  <h2>Dit sterkt ons in het idee dat wij onze opgedane ervaring kunnen aanwenden voor de ontwikkeling, productie en verkoop van een collectie van gepersonaliseerde matrassen, toppers  en boxsprings. Een modulaire collectie van uitwisselbare productonderdelen en producten die staan voor kwaliteit en duurzaamheid, die wij kunnen aanbieden voor een eerlijke prijs. Zo maken wij een echt Hollands product waar kwaliteit ons uitgangspunt is.</h2><br />
+  ​
+  <h2>Wij staan voor:</h2>
+  <h3>- Maatwerk</h3>
+  <h3>- Vakmanschap</h3>
+  <h3>- Korte levertijden</h3>
+</div>
 </div>
 <!--Footer-->
       <footer class="page-footer font-medium stylish-color-dark pt-4 mt-4">
@@ -69,11 +141,14 @@
 
                   <!--Fourth column-->
                   <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                      <h4 class="text-uppercase mb-4 font-weight-bold">....</h4>
-                      <h5>....</p>
-                      <p>....</p>
-                      <p>....</p>
-                      <p>....</p>
+                      <h4 class="text-uppercase mb-4 font-weight-bold">Openingstijden</h4>
+                      <h5>Maandag&emsp; 9:00 - 17:00</h5>
+                      <h5>Dinsdag&emsp; &nbsp; 9:00 - 17:00</h5>
+                      <h5>Woensdag&nbsp;&nbsp; 9:00 - 17:00</h5>
+                      <h5>Donderdag&nbsp;&nbsp; 9:00 - 17:00</h5>
+                      <h5>Vrijdag&emsp;&emsp;&nbsp; 9:00 - 17:00</h5>
+                      <h5>Zaterdag&emsp;&nbsp; 10:00 - 16:00</h5>
+                      <h5>Zondag&emsp;&emsp; en in de avond uren op afspraak</h5>
                   </div>
                   <!--/.Fourth column-->
 
@@ -128,5 +203,10 @@
 
       </footer>
       <!--/.Footer-->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </body>
 </html>
