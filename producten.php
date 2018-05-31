@@ -17,30 +17,48 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <title>De Slaapmeesters</title>
   </head>
   <body>
+
     <div class="container">
+
   <div class="jumbotron">
+    <a href="index.php">
    <img class="img-responsive logo" width="700" height="350" src="img/deslaapmeesters.png">
+   </a>
     <p>Ervaring van toen, kennis van nu en een scherpe blik op de toekomst.</p>
 
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light navcolor">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="producten.php">Producten</a>
-        <a class="nav-item nav-link" href="#">Pricing</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="producten.php">Producten</a>
+        </li>
+      </ul>
+      <div class="faPosition">
+        <a href="https://www.facebook.com/De-Slaapmeesters-255553631589175/" class="fab fa-facebook"></a>
+        <a href="https://www.instagram.com/slaapmeesters/" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-pinterest-square"></a>
       </div>
     </div>
   </nav>
-</div>
+
 
 	<div class="container-slider">
 		        <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -90,121 +108,90 @@
     Zo kunt u kiezen tussen 165 verschillende stofferingen onderverdeeld in 6 materialen. Ook de afmetingen, ligcomfort en poten worden door de klant gekozen.
     Dat alles wordt dan geproduceert door vakmannen met samen 100 jaar ervaring en is het binnen 4 tot 5 weken bij u thuis tegen een eerlijke prijs.
 </div>
-
+<script language="javascript">
+function excellent_animate(px) {
+	$('#excellent').animate({
+		'marginLeft' : px
+	});
+}
+</script>
 <img class="img-responsiver imagePosition" width="500" height="350" src="img/Schermafbeelding 2017-12-20 om 14.22.22_resized.png">
 </div>
 <div class="container">
   <div class="col-md-4 mb-4 align-self-center">
+    <div id="comfort">
       <div class="card">
          <div class="card-body cardColor">
             <div class="card-title ">
-              <a href="index.php"><img class="card-img-top click "  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
+              <a onclick="document.getElementById('comfort').style.display='block';
+               document.getElementById('excellent').style.display='none';
+                document.getElementById('backbtn').style.display='block';
+                "><img class="card-img-top click "  src="img/20170912_De_Slaapmeesters-DSC_5302_thumb.jpg" alt="Card image cap"></a>
   <div class="card-body">
-    <p class="card-text textColor click">boxsprings</p>
+    <p class="card-text textColor">Comfort</p>
+    <div id="backbtn">
+    <a href="producten.php">
+    <button type="button" class="btn btn-dark">Back</button>
+    </a>
+  </div>
 
          </div>
       </div>
   </div>
+</div>
 </div>
 </div>
   <div class="col-md-4 mb-4 align-self-center">
+      <div id="excellent">
       <div class="card">
          <div class="card-body cardColor">
             <div class="card-title">
-              <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
+              <a onclick="document.getElementById('comfort').style.display='none';
+               document.getElementById('excellent').style.display='none';
+               document.getElementById('backbtn2').style.display='block';
+                document.getElementById('backbtn3').style.display='block';
+               document.getElementById('opties').style.display='block';
+              "><img class="card-img-top click"  src="img/20170912_De_Slaapmeesters-DSC_5284_thumb.jpg" alt="Card image cap"></a>
   <div class="card-body">
-    <p class="card-text textColor">boxsprings</p>
+    <p class="card-text textColor">Excellent</p>
+    <div id="backbtn2">
+    <a href="producten.php">
+    <button type="button" class="btn btn-dark">Back</button>
+    </a>
+  </div>
          </div>
       </div>
   </div>
 </div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
+
 </div>
 </div>
 </div>
 <div class="col-md-4 mb-4 align-self-center">
+    <div id="opties">
     <div class="card">
        <div class="card-body cardColor">
           <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
+            <img class="card-img-top click"  src="img/20170912_De_Slaapmeesters-DSC_5284_thumb.jpg" alt="Card image cap"></a>
 <div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
+  <div id="backbtn3">
+  <a href="producten.php">
+  <button type="button" class="btn btn-dark">Back</button>
+  </a>
+</div>
        </div>
     </div>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 align-self-center">
-    <div class="card">
-       <div class="card-body cardColor">
-          <div class="card-title">
-            <a href="index.php"><img class="card-img-top click"  src="img/DSC_0030 (3)_thumb.JPG" alt="Card image cap"></a>
-<div class="card-body">
-  <p class="card-text textColor">boxsprings</p>
-       </div>
-    </div>
-</div>
-</div>
 </div>
 </div>
 
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
 
 <!--Footer-->
       <footer class="page-footer font-medium stylish-color-dark pt-4 mt-4">
