@@ -1,3 +1,35 @@
+<?php
+require("inc/connection.php");
+
+$sqlafmeting = "SELECT * FROM afmeting";
+$sqlpoten = "SELECT * FROM poten";
+$sqlhoofdbord = "SELECT * FROM hoofdbord";
+$sqlmatraspocket = "SELECT * FROM matraspocket";
+$sqltopperligcomfort = "SELECT * FROM topperligcomfort";
+$sqltoppertype = "SELECT * FROM toppertype";
+$resultafmeting = $conn->query($sqlafmeting);
+$resultpoten = $conn->query($sqlpoten);
+$resulthoofdbord = $conn->query($sqlhoofdbord);
+$resultmatraspocket= $conn->query($sqlmatraspocket);
+$resulttopperligcomfort= $conn->query($sqltopperligcomfort);
+$resulttoppertype= $conn->query($sqltoppertype);
+
+
+$sql = "SELECT * FROM afmeting";
+$materiaal = "SELECT * FROM stoffering";
+
+$sql2 = "SELECT * FROM `stoffering` inner join `colors` on `stoffering`.`stofid` = `colors`.`materiaalid`";
+$resource = $conn->query($sql2);
+$kleurenenmaterialen = array();
+while ($row = $resource->fetch_assoc()) {
+  $kleurenenmaterialen[]= $row;
+}
+
+$resultmateriaal = $conn->query($materiaal);
+$result = $conn->query($sql);
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -108,12 +140,7 @@
     Zo kunt u kiezen tussen 165 verschillende stofferingen onderverdeeld in 6 materialen. Ook de afmetingen, ligcomfort en poten worden door de klant gekozen.
     Dat alles wordt dan geproduceert door vakmannen met samen 100 jaar ervaring en is het binnen 4 tot 5 weken bij u thuis tegen een eerlijke prijs.
 </div>
-<script language="javascript">
-function excellent_animate(px) {
-	$('#excellent').animate({
-		'marginLeft' : px
-	});
-}
+
 </script>
 <img class="img-responsiver imagePosition" width="500" height="350" src="img/Schermafbeelding 2017-12-20 om 14.22.22_resized.png">
 </div>
@@ -126,6 +153,7 @@ function excellent_animate(px) {
               <a onclick="document.getElementById('comfort').style.display='block';
                document.getElementById('excellent').style.display='none';
                 document.getElementById('backbtn').style.display='block';
+                 document.getElementById('textPositionOrder2').style.display='block';
                 "><img class="card-img-top click "  src="img/20170912_De_Slaapmeesters-DSC_5302_thumb.jpg" alt="Card image cap"></a>
   <div class="card-body">
     <p class="card-text textColor">Comfort</p>
@@ -141,7 +169,256 @@ function excellent_animate(px) {
 </div>
 </div>
 </div>
+<div id="textPositionOrder2">
+  <form action="bestelling.php" method="post">
+    <div id="cointainerOrderInfo">
+    <label class="mt-4 ml-5">Afmetingen:</label>
+    <select class="text-dark" name="afmeting">
+    <?php
+  foreach ($resultafmeting as $afmeting ) {
+    echo "<option  value='". $afmeting['afmetingid']. "'>".$afmeting['lengte']."x".$afmeting['breedte']."</option>";
+  }
+     ?>
+   </select><br />
+   <div class="ml-5 textStyle" id="poten">
+     <label class="textColorOrder mb-3 mt-3">Poten:</label>
+  <br />
+     <?php
+   foreach ($resultpoten as $poten ) {
+     echo "<label>".$poten['materiaal']." ".$poten['diepte']."cm</label><input required type='radio' name='poten' value='". $poten['potenid']. "'><br />";
+   }
+
+      ?>
+
+      <label class="textColorOrder mb-3 mt-3">Hoofdbord</label><br />
+      <label class="textColorOrder">hoogte: 110</label><br />
+      <?php
+    foreach ($resulthoofdbord as $hoofdbord ) {
+      echo "<label>diepte: ".$hoofdbord['diepte']."cm</label><input required type='radio' name='hoofdbord' value='". $hoofdbord['hoofdbordid']. "'><br />";
+    }
+       ?><br />
+       <label class="textColorOrder mb-3 mt-3">Matraspocket:</label>
+       <div id="tabelStyle">
+       <table>
+         <tr>
+          <th>
+          </th>
+           <th>Links</th>
+           <th>Rechts</th>
+         </tr>
+        <tr>
+            <td>
+              <label>Medium</label>
+              <label>Stevig</label>
+              <label>Extra stevig</label>
+            </td>
+            <td>
+              <input required type="radio" name="matras_pocket_links" value="1" /><br />
+              <input type="radio" name="matras_pocket_links" value="2" /><br />
+              <input type="radio" name="matras_pocket_links" value="3" /><br />
+            </td>
+            <td>
+              <input required type="radio" name="matras_pocket_rechts" value="1" /><br />
+              <input type="radio" name="matras_pocket_rechts" value="2" /><br />
+              <input type="radio" name="matras_pocket_rechts" value="3" /><br />
+            </td>
+        </tr>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+      <label class="textColorOrder mb-3 mt-3">Topperligcomfort:</label><br />
+      <?php
+    foreach ($resulttopperligcomfort as $topperligcomfort ) {
+      echo "<label> ".$topperligcomfort['waarde']."</label><input required type='radio' name='topperligcomfort' value='". $topperligcomfort['id']. "'><br />";
+    }
+       ?>
+       <label class="textColorOrder mb-3 mt-3">Toppertype:  </label><br />
+       <?php
+     foreach ($resulttoppertype as $toppertype ) {
+       echo "<label> ".$toppertype['waarde']."</label><input required type='radio' name='toppertype' value='". $toppertype['id']. "'><br />";
+     }
+        ?>
+
+
+        </select><br>
+
+        <label>Materiaal</label>
+       <select class="text-dark" id="materiaal" onchange="displayBlocks()" required name="materiaal">
+              <?php
+            foreach ($resultmateriaal as $materiaal ) {
+
+              echo "<option value='".$materiaal['stofid']."'>".$materiaal['naam']."</option>";
+            }
+               ?>
+             </select><br>
+             <script>
+        function displayBlocks() {
+            var x = document.getElementById("materiaal").value;
+            if (x == 1) {
+               document.getElementById("Board").style.display='block';
+               document.getElementById("Jeep").style.display='none';
+               document.getElementById("Pixel").style.display='none';
+               document.getElementById("Crush").style.display='none';
+               document.getElementById("Radar").style.display='none';
+            }
+            else if (x == 2) {
+               document.getElementById("Jeep").style.display='block';
+               document.getElementById("Board").style.display='none';
+               document.getElementById("Pixel").style.display='none';
+               document.getElementById("Crush").style.display='none';
+               document.getElementById("Radar").style.display='none';
+            }
+
+            else if (x == 3) {
+               document.getElementById("Pixel").style.display='block';
+               document.getElementById("Jeep").style.display='none';
+               document.getElementById("Board").style.display='none';
+               document.getElementById("Crush").style.display='none';
+               document.getElementById("Radar").style.display='none';
+            }
+            else if (x == 4) {
+               document.getElementById("Crush").style.display='block';
+               document.getElementById("Board").style.display='none';
+               document.getElementById("Pixel").style.display='none';
+               document.getElementById("Jeep").style.display='none';
+               document.getElementById("Radar").style.display='none';
+            }
+            else if (x == 5) {
+               document.getElementById("Radar").style.display='block';
+               document.getElementById("Board").style.display='none';
+               document.getElementById("Pixel").style.display='none';
+               document.getElementById("Jeep").style.display='none';
+               document.getElementById("Crush").style.display='none';
+            }
+        }
+        </script>
+
+           <div id="Board" style="display:none;">
+
+             <?php
+             $sqlBoard = "SELECT * FROM colors WHERE materiaalid = 1";
+             $result = $conn->query($sqlBoard);
+
+             while ($row = $result->fetch_assoc())
+             {
+               echo "<div class='fabricimg'>";
+               echo "<img src='". $row['plaatje'] ."'width='50px' height='50px'/>";
+               echo "<div class='name'>" .$row["kleurnaam"]."</div>";
+               echo "</div>";
+               ?>
+               <input type="radio" required name="kleur" value="<?php echo $row["colorid"] ?>"/>
+               <?php
+             }
+              ?>
+           </div>
+           <div  id="Jeep" style="display:none;">
+             <?php
+             $sqlJeep = "SELECT * FROM colors WHERE materiaalid = 2";
+             $result = $conn->query($sqlJeep);
+
+             while ($row = $result->fetch_assoc())
+             {
+               echo "<div class='fabricimg'>";
+               echo "<img src='". $row['plaatje'] ."'width='50px' height='50px'/>";
+               echo "<div class='overlay'>";
+               echo "<div class='hoverimg'><img src='". $row['plaatje'] ."' width='120px' height='120px'><br>";
+               echo "<div class='name'>" .$row["kleurnaam"]."</div>";
+               echo "</div>";
+               echo "</div>";
+               ?>
+               <input type="radio" name="kleur" value="<?php echo $row["colorid"] ?>"/>
+               <?php
+               echo "</div>";
+             }
+              ?>
+           </div>
+           <div id="Pixel" style="display:none;">
+             <?php
+             $sqlPixel = "SELECT * FROM colors WHERE materiaalid = 3";
+             $result = $conn->query($sqlPixel);
+
+             while ($row = $result->fetch_assoc())
+             {
+               echo "<div class='fabricimg'>";
+               echo "<img src='". $row['plaatje'] ."'width='50px' height='50px'/>";
+               echo "<div class='overlay'>";
+               echo "<div class='hoverimg'><img src='". $row['plaatje'] ."' width='120px' height='120px'><br>";
+               echo "<div class='name'>" .$row["kleurnaam"]."</div>";
+               echo "</div>";
+               echo "</div>";
+               ?>
+               <input type="radio" name="kleur" value="<?php echo $row["colorid"] ?>"/>
+               <?php
+               echo "</div>";
+             }
+              ?>
+           </div>
+           <div id="Crush" style="display:none;">
+             <?php
+             $sqlCrush = "SELECT * FROM colors WHERE materiaalid = 4";
+             $result = $conn->query($sqlCrush);
+
+             while ($row = $result->fetch_assoc())
+             {
+               echo "<div class='fabricimg'>";
+               echo "<img src='". $row['plaatje'] ."'width='50px' height='50px'/>";
+               echo "<div class='overlay'>";
+               echo "<div class='hoverimg'><img src='". $row['plaatje'] ."' width='120px' height='120px'><br>";
+               echo "<div class='name'>" .$row["kleurnaam"]."</div>";
+               echo "</div>";
+               echo "</div>";
+               ?>
+               <input type="radio" name="kleur" value="<?php echo $row["colorid"] ?>"/>
+               <?php
+               echo "</div>";
+             }
+              ?>
+           </div>
+           <div id="Radar" style="display:none;">
+             <?php
+             $sqlRadar = "SELECT * FROM colors WHERE materiaalid = 5";
+             $result = $conn->query($sqlRadar);
+
+             while ($row = $result->fetch_assoc())
+             {
+               echo "<div class='fabricimg'>";
+               echo "<img src='". $row['plaatje'] ."'width='50px' height='50px'/>";
+               echo "<div class='overlay'>";
+               echo "<div class='hoverimg'><img src='". $row['plaatje'] ."' width='120px' height='120px'><br>";
+               echo "<div class='name'>" .$row["kleurnaam"]."</div>";
+               echo "</div>";
+               echo "</div>";
+               ?>
+               <input type="radio" name="kleur" value="<?php echo $row["colorid"] ?>"/>
+               <?php
+               echo "</div>";
+             }
+              ?>
+           </div>
+      <button type="submit" class="btn btn-dark mb-5">Bestel</button>
+        </div>
+        <div class="containerklant">
+          <label class="textStyle">Klantgegevens</label><br />
+          <label>Naam</label>
+           <input class="text-dark" required autocomplete="off" type="text" name="name"/><br>
+           <label>Adres</label>
+           <input class="text-dark" required autocomplete="off" type="text" name="adres"/><br>
+           <label>Postcode</label>
+           <input class="text-dark" required autocomplete="off" type="text" name="postcode"/><br>
+           <label>Email</label>
+           <input class="text-dark" required autocomplete="off" type="email" name="email"/><br>
+           <label>Telefoonnr</label>
+           <input class="text-dark" required autocomplete="off" type="number" name="telefoonnr"/><br>
+        </div>
+  </form>
+</div>
+
   <div class="col-md-4 mb-4 align-self-center">
+
       <div id="excellent">
       <div class="card">
          <div class="card-body cardColor">
@@ -151,6 +428,7 @@ function excellent_animate(px) {
                document.getElementById('backbtn2').style.display='block';
                 document.getElementById('backbtn3').style.display='block';
                document.getElementById('opties').style.display='block';
+               document.getElementById('textPositionOrder').style.display='block';
               "><img class="card-img-top click"  src="img/20170912_De_Slaapmeesters-DSC_5284_thumb.jpg" alt="Card image cap"></a>
   <div class="card-body">
     <p class="card-text textColor">Excellent</p>
@@ -167,7 +445,9 @@ function excellent_animate(px) {
 </div>
 </div>
 </div>
-<div class="col-md-4 mb-4 align-self-center">
+</div>
+<div class="col-md-4 mb-4 align-self-center row">
+
     <div id="opties">
     <div class="card">
        <div class="card-body cardColor">
@@ -179,15 +459,91 @@ function excellent_animate(px) {
   <button type="button" class="btn btn-dark">Back</button>
   </a>
 </div>
+<div class="textPlace">
+
+</div>
        </div>
     </div>
 </div>
 </div>
 
-
 </div>
 </div>
+<div id="textPositionOrder">
+  <form action="bestelling.php" method="post">
+    <label>Afmetingen</label>
+    <select name="afmeting">
+    <?php
+  foreach ($resultafmeting as $afmeting ) {
+    echo "<option value='". $afmeting['afmetingid']. "'>".$afmeting['lengte']."x".$afmeting['breedte']."</option>";
+  }
+     ?>
+   </select><br />
+     <label>Poten</label>
+     <label>Materiaal:</label><br />
+     <?php
+   foreach ($resultpoten as $poten ) {
+     echo "<label>".$poten['materiaal']." ".$poten['diepte']."cm</label><input type='radio' name='poten' value='". $poten['potenid']. "'><br />";
+   }
 
+      ?>
+      <label>Hoofdbord</label>
+      <label>hoogte: 110</label><br />
+      <?php
+    foreach ($resulthoofdbord as $hoofdbord ) {
+      echo "<label>diepte: ".$hoofdbord['diepte']."cm</label><input type='radio' name='hoofdbord' value='". $hoofdbord['hoofdbordid']. "'><br />";
+    }
+       ?><br />
+       <label>Matraspocket</label>
+       <div id="tabelStyle">
+       <table>
+         <tr>
+          <th>
+          </th>
+           <th>Links</th>
+           <th>Rechts</th>
+         </tr>
+        <tr>
+            <td>
+              <label>Medium</label>
+              <label>Stevig</label>
+              <label>Extra stevig</label>
+            </td>
+            <td>
+              <input type="radio" name="matras_pocket_links" value="1" /><br />
+              <input type="radio" name="matras_pocket_links" value="2" /><br />
+              <input type="radio" name="matras_pocket_links" value="3" /><br />
+            </td>
+            <td>
+              <input type="radio" name="matras_pocket_rechts" value="1" /><br />
+              <input type="radio" name="matras_pocket_rechts" value="2" /><br />
+              <input type="radio" name="matras_pocket_rechts" value="3" /><br />
+            </td>
+        </tr>
+        <tr>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+      <label>Topperligcomfort</label>
+      <label>waarde:</label><br />
+      <?php
+    foreach ($resulttopperligcomfort as $topperligcomfort ) {
+      echo "<label> ".$topperligcomfort['waarde']."</label><input type='radio' name='topperligcomfort' value='". $topperligcomfort['id']. "'><br />";
+    }
+       ?>
+       <label>Toppertype</label>
+       <label>waarde:</label><br />
+       <?php
+     foreach ($resulttoppertype as $toppertype ) {
+       echo "<label> ".$toppertype['waarde']."</label><input type='radio' name='toppertype' value='". $toppertype['id']. "'><br />";
+     }
+        ?>
+        <input type="submit" value="bestel" />
+  </form>
+</div>
 </div>
 
 </div>
@@ -226,9 +582,7 @@ function excellent_animate(px) {
                   <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                       <h4 class="text-uppercase mb-4 font-weight-bold">Menu</h4>
                       <h5><a href="index.php">Home</a></p>
-                      <p><a href="#!">Over ons</a></p>
                       <p><a href="producten.php">Producten</a></p>
-                      <p><a href="#!">Contact</a></p>
                   </div>
                   <!--/.Third column-->
 
@@ -258,44 +612,32 @@ function excellent_animate(px) {
                       <p><i class="fa fa-print mr-3"></i> www.deslaapmeesters.nl<p>
                   </div>
                   <!--/.Fourth column-->
-
               </div>
               <!-- Footer links -->
-
               <hr>
-
               <div class="row py-3 d-flex align-items-center">
-
                   <!--Grid column-->
                   <div class="col-md-8 col-lg-8">
-
                       <!--Copyright-->
                       <h5 class="text-center text-md-left grey-text">© 2018 Copyright: De Slaapmeesers</p>
                       <!--/.Copyright-->
-
                   </div>
                   <!--Grid column-->
-
                   <!--Grid column-->
                   <div class="col-md-3 col-lg-3 ml-lg-3">
-
                       <!--Social buttons-->
                       <div class="text-center text-md-right">
                           <ul class="social list-unstyled list-inline">
-                            <a href="#" class="mr-3 fa fa-facebook"></a>
-                            <a href="#" class="mr-3 fa fa-instagram"></a>
-                            <a href="#" class="mr-3 fa fa-pinterest"></a>
+                            <a href="https://www.facebook.com/De-Slaapmeesters-255553631589175/" class="mr-3 fab fa-facebook"></a>
+                            <a href="https://www.instagram.com/slaapmeesters/" class="mr-3 fab fa-instagram"></a>
+                            <a href="#" class="mr-3 fab fa-pinterest"></a>
                           </ul>
                       </div>
                       <!--/.Social buttons-->
-
                   </div>
                   <!--Grid column-->
-
               </div>
-
           </div>
-
       </footer>
       <!--/.Footer-->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->

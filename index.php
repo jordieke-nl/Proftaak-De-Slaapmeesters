@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
     <link rel="icon" href="img/logo.png" type="img/logo.jpg"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -53,9 +51,9 @@
         </li>
       </ul>
       <div class="faPosition">
-        <a href="https://www.facebook.com/De-Slaapmeesters-255553631589175/" class="fab fa-facebook"></a>
-        <a href="https://www.instagram.com/slaapmeesters/" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-pinterest-square"></a>
+        <a href="https://www.facebook.com/De-Slaapmeesters-255553631589175/" class="mr-3 fab fa-facebook"></a>
+        <a href="https://www.instagram.com/slaapmeesters/" class="mr-3 fab fa-instagram"></a>
+        <a href="#" class="mr-3 fab fa-pinterest-square"></a>
       </div>
     </div>
   </nav>
@@ -111,9 +109,7 @@
                   <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                       <h4 class="text-uppercase mb-4 font-weight-bold">Menu</h4>
                       <h5><a href="#!">Home</a></p>
-                      <p><a href="#!">Over ons</a></p>
                       <p><a href="#!">Producten</a></p>
-                      <p><a href="#!">Contact</a></p>
                   </div>
                   <!--/.Third column-->
 
@@ -167,9 +163,9 @@
                       <!--Social buttons-->
                       <div class="text-center text-md-right">
                           <ul class="social list-unstyled list-inline">
-                            <a href="#" class="mr-3 fa fa-facebook"></a>
-                            <a href="#" class="mr-3 fa fa-instagram"></a>
-                            <a href="#" class="mr-3 fa fa-pinterest"></a>
+                            <a href="#" class="mr-3 fab fa-facebook"></a>
+                            <a href="#" class="mr-3 fab fa-instagram"></a>
+                            <a href="#" class="mr-3 fab fa-pinterest"></a>
                           </ul>
                       </div>
                       <!--/.Social buttons-->

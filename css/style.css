@@ -11,10 +11,11 @@ body {
   font-size: 20px;
 }
 
-.active{
-        z-index:99;
-    }
-table td{
+.active {
+  z-index: 99;
+}
+
+table td {
   padding-left: 5px !important;
   font-size: 1.25rem !important;
 }
@@ -22,44 +23,43 @@ table td{
 .cardColor {
   background-color: #575756;
 }
+
 .textColor {
   color: #f9f9f9 !important;
-  font-family: Helvetica,Arial,Verdana,sans-serif !important;
+  font-family: Helvetica, Arial, Verdana, sans-serif !important;
   font-size: 30px !important;
   text-align: center;
 }
 
 .backColor {
-  background-color: f6f6f6 !important;
+  background-color: #f6f6f6 !important;
 }
 
 .ownStyle {
   font-size: 20px;
-  font-family: Helvetica,Arial,Verdana,sans-serif;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
   text-align: left;
 }
-
 
 .click {
   opacity: 0.7;
 }
+
 .click:hover {
   transform: scale(1.05);
   opacity: 1.0;
 }
 
-
 .imagePosition {
-margin: 0 auto;
-max-width: 100%;
-margin-top: 10px;
+  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 10px;
 }
 
 #backbtn {
   display: none;
 }
 
-
 #backbtn2 {
   display: none;
 }
@@ -67,13 +67,12 @@ margin-top: 10px;
 #backbtn2 {
   display: none;
 }
-
 
 .jumbotron {
-padding-right: 60px;
-padding-left: 60px;
-margin-top: -24px;
-background-color: #fff!important;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-top: -24px;
+  background-color: #fff !important;
 }
 
 .container-slider {
@@ -83,26 +82,119 @@ background-color: #fff!important;
 
 .foto {
   border-radius: 6px;
-    height: 350px;
+  height: 350px;
 }
 
 .navbar {
-  background-color: #fff!important;
-  margin-top: -35px!important;
+  background-color: #fff !important;
+  margin-top: -35px !important;
 }
 
 .size {
-  font-size: 2.5rem!important;
+  font-size: 2.5rem !important;
 }
 
 .faPosition {
   float: right;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 #opties {
   background-color: #575756;
   float: right;
   display: none;
-  height: 200px;
+  height: 100%;
   max-width: 100%;
+}
+
+#textPositionOrder {
+  background-color: #575756;
+  display: none;
+}
+
+#textPositionOrder2 {
+  background-color: #575756;
+  display: none;
+}
+
+.nav-link {
+  background-color: white !important;
+}
+
+.nav-link:hover {
+  color: #337ab7 !important;
+}
+
+#cointainerOrderInfo {
+  background-color: #575756;
+  float: left;
+  text-align: left;
+  color: #cecece;
+}
+
+#poten {
+  float: left;
+}
+
+table {
+  width: 50%;
+  text-align: left;
+}
+
+.buttonStyle {
+  color: black;
+  border-radius: 1em;
+  border-color: black;
+}
+
+.textColorOrder {
+  color: white;
+  font-size: 15px;
+}
+
+
+.logo {
+  margin-top: -30px;
+}
+
+.social {
+  font-size: 20px;
+}
+
+
+.name {
+  position: fixed;
+  margin-top: 1px;
+}
+
+.fabricimg {
+
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  width: 10px;
+  height: 10px;
+
+}
+
+.fabricimg:hover {
+transform: scale(1.5);
+}
+
+.buttoncolor {
+  background-color: #555756;
+  width: 130px;
+  height: 35px;
+}
+
+.containerklant {
+  float: left;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
